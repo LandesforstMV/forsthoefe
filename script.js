@@ -20,10 +20,12 @@ async function loadBuildingsData() {
 
         // Store buildings globally
         window.allBuildings = buildings;
+        filteredBuildings = buildings;
 
         // Initialize filters and display
         initializeFilters(buildings);
         displayBuildings(buildings.slice(0, 12)); // Show first 12 buildings
+        updateResultCount();
 
         // Update load more button
         updateLoadMoreButton(buildings.length);
@@ -35,10 +37,12 @@ async function loadBuildingsData() {
 
         // Store buildings globally
         window.allBuildings = buildings;
+        filteredBuildings = buildings;
 
         // Initialize filters and display
         initializeFilters(buildings);
         displayBuildings(buildings.slice(0, 12)); // Show first 12 buildings
+        updateResultCount();
 
         // Update load more button
         updateLoadMoreButton(buildings.length);
@@ -47,15 +51,114 @@ async function loadBuildingsData() {
 
 // Embedded buildings data for local development
 function getEmbeddedBuildingsData() {
-    const csvData = `name,address,city,year_built,architect,building_condition,heritage_value,building_history,description,sources_literature,images,main_image
-Forsthaus Mirow,Schlossstraße 1, Mirow,1895,Georg Adolph Demmler,Denkmalfachlich gelungene (Um)Nutzung,Das Gebäude ist ein charakteristisches Beispiel für die Forstverwaltungsarchitektur des späten 19. Jahrhunderts in Mecklenburg-Vorpommern.,Das Forsthaus Mirow wurde 1895 im neugotischen Stil errichtet und diente ursprünglich als Wohn- und Verwaltungssitz des Oberförsters. Das Gebäude zeigt typische Merkmale der mecklenburgischen Forstarchitektur mit Fachwerkkonstruktion und Ziegeldach.,Das Forsthaus Mirow ist ein zweigeschossiges Gebäude mit Satteldach und repräsentativer Fassade. Es verfügt über eine Grundfläche von ca. 200 m² und wurde 1895 im neugotischen Stil erbaut. Das Gebäude steht unter Denkmalschutz und wird heute als Wohnhaus genutzt.,Landesamt für Kultur und Denkmalpflege MV, www.denkmal-mv.de; Forstamt Mirow, www.wald-mv.de,https://example.com/forsthaus-mirow-1.jpg;https://example.com/forsthaus-mirow-2.jpg;https://example.com/forsthaus-mirow-3.jpg,https://example.com/forsthaus-mirow-main.jpg
-Oberförsterei Feldberg,Forstweg 5, Feldberg,1902,Paul Korff,Erfolgreiche und solide Sicherung,Das Gebäude repräsentiert die Entwicklung der staatlichen Forstverwaltung im Deutschen Kaiserreich.,Die Oberförsterei Feldberg wurde 1902 als Verwaltungssitz für den Feldberger Forst errichtet. Das Gebäude diente der Unterbringung von Forstbeamten und der Verwaltung des umliegenden Waldes.,Die Oberförsterei Feldberg ist ein eingeschossiges Gebäude mit Mansarddach und umlaufender Veranda. Erbaut 1902 im Stil der Heimatschutzarchitektur, verfügt es über eine Nutzfläche von ca. 150 m². Das Gebäude wird heute als Forstamt genutzt.,Landesforst MV - Forstamt Feldberg, www.wald-mv.de; Denkmalinventar Feldberg,https://example.com/obf-feldberg-1.jpg;https://example.com/obf-feldberg-2.jpg,https://example.com/obf-feldberg-main.jpg
-Forsthaus Serrahn,Am See 12, Serrahn,1887,Wilhelm Wroost,Denkmalverträgliche Teilnutzung,Das Forsthaus Serrahn ist ein wichtiges Zeugnis der forstlichen Kolonisation Mecklenburgs im 19. Jahrhundert.,Das Forsthaus Serrahn wurde 1887 als Teil der forstlichen Erschließung des Müritzgebietes erbaut. Es diente der Bewirtschaftung der umliegenden Waldflächen und der Unterbringung von Forstpersonal.,Das Forsthaus Serrahn ist ein eingeschossiges Gebäude mit Krüppelwalmdach und Fachwerkkonstruktion. Erbaut 1887, verfügt es über eine Grundfläche von ca. 120 m². Das Gebäude steht unter Denkmalschutz und wird privat genutzt.,Landesamt für Kultur und Denkmalpflege MV; Forstamt Serrahn,https://example.com/forsthaus-serrahn-1.jpg;https://example.com/forsthaus-serrahn-2.jpg;https://example.com/forsthaus-serrahn-3.jpg;https://example.com/forsthaus-serrahn-4.jpg,https://example.com/forsthaus-serrahn-main.jpg
-Waldarbeiterhaus Basedow,Forststraße 8, Basedow,1910,Heinrich Schulz,Gefahr für den Bestand,Das Waldarbeiterhaus Basedow dokumentiert die Lebens- und Arbeitsbedingungen der Forstarbeiter im frühen 20. Jahrhundert.,Das Waldarbeiterhaus Basedow wurde 1910 für die Unterbringung von Waldarbeitern und deren Familien errichtet. Es ist Teil eines Ensembles von Forstgebäuden aus der Zeit der intensiven Forstwirtschaft.,Das Waldarbeiterhaus Basedow ist ein zweigeschossiges Mehrfamilienhaus mit Satteldach. Erbaut 1910, verfügt es über 6 Wohnungen mit je ca. 60 m². Das Gebäude ist sanierungsbedürftig und steht unter Denkmalschutz.,Denkmalpflegeamt Rostock; Forstamt Basedow,https://example.com/waldarbeiter-basedow-1.jpg;https://example.com/waldarbeiter-basedow-2.jpg,https://example.com/waldarbeiter-basedow-main.jpg
-Forstmeisterhaus Waren,Seestraße 15, Waren (Müritz),1898,Fritz Behnke,Denkmalfachlich gelungene (Um)Nutzung,Das Forstmeisterhaus Waren zeigt die architektonische Entwicklung der Forstverwaltung von der Gründerzeit zum Jugendstil.,Das Forstmeisterhaus Waren wurde 1898 als Wohnsitz des Forstmeisters errichtet. Das Gebäude war Teil der großherzoglichen Forstverwaltung Mecklenburg-Strelitz.,Das Forstmeisterhaus Waren ist ein zweigeschossiges Gebäude mit Walmdach und repräsentativer Fassadengestaltung. Erbaut 1898 im Stil der Neorenaissance, verfügt es über eine Nutzfläche von ca. 180 m². Das Gebäude wird heute als Büro genutzt.,Landesforst MV - Forstamt Waren; Stadtarchiv Waren,https://example.com/forstmeister-waren-1.jpg;https://example.com/forstmeister-waren-2.jpg;https://example.com/forstmeister-waren-3.jpg,https://example.com/forstmeister-waren-main.jpg
-Jägerhaus Rechlin,Am Wald 3, Rechlin,1905,Otto Peters,Erfolgreiche und solide Sicherung,Das Jägerhaus Rechlin ist ein typisches Beispiel für die kleineren Forstgebäude der Region.,Das Jägerhaus Rechlin wurde 1905 als Unterkunft für den Revierjäger errichtet. Es diente der Überwachung der Jagd und der forstlichen Aufsicht.,Das Jägerhaus Rechlin ist ein eingeschossiges Gebäude mit Satteldach und seitlichem Anbau. Erbaut 1905, verfügt es über eine Grundfläche von ca. 80 m². Das Gebäude wird heute als Ferienhaus genutzt.,Forstamt Rechlin; Gemeinde Rechlin,https://example.com/jaegerhaus-rechlin-1.jpg;https://example.com/jaegerhaus-rechlin-2.jpg,https://example.com/jaegerhaus-rechlin-main.jpg`;
-
-    return parseCSV(csvData);
+    return [
+        {
+            name: 'Forsthaus Mirow',
+            address: 'Schlossstraße 1, Mirow',
+            city: 'Mirow',
+            year_built: '1895',
+            architect: 'Georg Adolph Demmler',
+            building_condition: 'Denkmalfachlich gelungene (Um)Nutzung',
+            heritage_value: 'Das Gebäude ist ein charakteristisches Beispiel für die Forstverwaltungsarchitektur des späten 19. Jahrhunderts in Mecklenburg-Vorpommern.',
+            building_history: 'Das Forsthaus Mirow wurde 1895 im neugotischen Stil errichtet und diente ursprünglich als Wohn- und Verwaltungssitz des Oberförsters. Das Gebäude zeigt typische Merkmale der mecklenburgischen Forstarchitektur mit Fachwerkkonstruktion und Ziegeldach.',
+            description: 'Das Forsthaus Mirow ist ein zweigeschossiges Gebäude mit Satteldach und repräsentativer Fassade. Es verfügt über eine Grundfläche von ca. 200 m² und wurde 1895 im neugotischen Stil erbaut. Das Gebäude steht unter Denkmalschutz und wird heute als Wohnhaus genutzt.',
+            sources_literature: 'Landesamt für Kultur und Denkmalpflege MV, www.denkmal-mv.de; Forstamt Mirow, www.wald-mv.de',
+            images: [
+                'https://example.com/forsthaus-mirow-1.jpg',
+                'https://example.com/forsthaus-mirow-2.jpg',
+                'https://example.com/forsthaus-mirow-3.jpg'
+            ],
+            main_image: 'https://example.com/forsthaus-mirow-main.jpg'
+        },
+        {
+            name: 'Oberförsterei Feldberg',
+            address: 'Forstweg 5, Feldberg',
+            city: 'Feldberg',
+            year_built: '1902',
+            architect: 'Paul Korff',
+            building_condition: 'Erfolgreiche und solide Sicherung',
+            heritage_value: 'Das Gebäude repräsentiert die Entwicklung der staatlichen Forstverwaltung im Deutschen Kaiserreich.',
+            building_history: 'Die Oberförsterei Feldberg wurde 1902 als Verwaltungssitz für den Feldberger Forst errichtet. Das Gebäude diente der Unterbringung von Forstbeamten und der Verwaltung des umliegenden Waldes.',
+            description: 'Die Oberförsterei Feldberg ist ein eingeschossiges Gebäude mit Mansarddach und umlaufender Veranda. Erbaut 1902 im Stil der Heimatschutzarchitektur, verfügt es über eine Nutzfläche von ca. 150 m². Das Gebäude wird heute als Forstamt genutzt.',
+            sources_literature: 'Landesforst MV - Forstamt Feldberg, www.wald-mv.de; Denkmalinventar Feldberg',
+            images: [
+                'https://example.com/obf-feldberg-1.jpg',
+                'https://example.com/obf-feldberg-2.jpg'
+            ],
+            main_image: 'https://example.com/obf-feldberg-main.jpg'
+        },
+        {
+            name: 'Forsthaus Serrahn',
+            address: 'Am See 12, Serrahn',
+            city: 'Serrahn',
+            year_built: '1887',
+            architect: 'Wilhelm Wroost',
+            building_condition: 'Denkmalverträgliche Teilnutzung',
+            heritage_value: 'Das Forsthaus Serrahn ist ein wichtiges Zeugnis der forstlichen Kolonisation Mecklenburgs im 19. Jahrhundert.',
+            building_history: 'Das Forsthaus Serrahn wurde 1887 als Teil der forstlichen Erschließung des Müritzgebietes erbaut. Es diente der Bewirtschaftung der umliegenden Waldflächen und der Unterbringung von Forstpersonal.',
+            description: 'Das Forsthaus Serrahn ist ein eingeschossiges Gebäude mit Krüppelwalmdach und Fachwerkkonstruktion. Erbaut 1887, verfügt es über eine Grundfläche von ca. 120 m². Das Gebäude steht unter Denkmalschutz und wird privat genutzt.',
+            sources_literature: 'Landesamt für Kultur und Denkmalpflege MV; Forstamt Serrahn',
+            images: [
+                'https://example.com/forsthaus-serrahn-1.jpg',
+                'https://example.com/forsthaus-serrahn-2.jpg',
+                'https://example.com/forsthaus-serrahn-3.jpg',
+                'https://example.com/forsthaus-serrahn-4.jpg'
+            ],
+            main_image: 'https://example.com/forsthaus-serrahn-main.jpg'
+        },
+        {
+            name: 'Waldarbeiterhaus Basedow',
+            address: 'Forststraße 8, Basedow',
+            city: 'Basedow',
+            year_built: '1910',
+            architect: 'Heinrich Schulz',
+            building_condition: 'Gefahr für den Bestand',
+            heritage_value: 'Das Waldarbeiterhaus Basedow dokumentiert die Lebens- und Arbeitsbedingungen der Forstarbeiter im frühen 20. Jahrhundert.',
+            building_history: 'Das Waldarbeiterhaus Basedow wurde 1910 für die Unterbringung von Waldarbeitern und deren Familien errichtet. Es ist Teil eines Ensembles von Forstgebäuden aus der Zeit der intensiven Forstwirtschaft.',
+            description: 'Das Waldarbeiterhaus Basedow ist ein zweigeschossiges Mehrfamilienhaus mit Satteldach. Erbaut 1910, verfügt es über 6 Wohnungen mit je ca. 60 m². Das Gebäude ist sanierungsbedürftig und steht unter Denkmalschutz.',
+            sources_literature: 'Denkmalpflegeamt Rostock; Forstamt Basedow',
+            images: [
+                'https://example.com/waldarbeiter-basedow-1.jpg',
+                'https://example.com/waldarbeiter-basedow-2.jpg'
+            ],
+            main_image: 'https://example.com/waldarbeiter-basedow-main.jpg'
+        },
+        {
+            name: 'Forstmeisterhaus Waren',
+            address: 'Seestraße 15, Waren (Müritz)',
+            city: 'Waren (Müritz)',
+            year_built: '1898',
+            architect: 'Fritz Behnke',
+            building_condition: 'Denkmalfachlich gelungene (Um)Nutzung',
+            heritage_value: 'Das Forstmeisterhaus Waren zeigt die architektonische Entwicklung der Forstverwaltung von der Gründerzeit zum Jugendstil.',
+            building_history: 'Das Forstmeisterhaus Waren wurde 1898 als Wohnsitz des Forstmeisters errichtet. Das Gebäude war Teil der großherzoglichen Forstverwaltung Mecklenburg-Strelitz.',
+            description: 'Das Forstmeisterhaus Waren ist ein zweigeschossiges Gebäude mit Walmdach und repräsentativer Fassadengestaltung. Erbaut 1898 im Stil der Neorenaissance, verfügt es über eine Nutzfläche von ca. 180 m². Das Gebäude wird heute als Büro genutzt.',
+            sources_literature: 'Landesforst MV - Forstamt Waren; Stadtarchiv Waren',
+            images: [
+                'https://example.com/forstmeister-waren-1.jpg',
+                'https://example.com/forstmeister-waren-2.jpg',
+                'https://example.com/forstmeister-waren-3.jpg'
+            ],
+            main_image: 'https://example.com/forstmeister-waren-main.jpg'
+        },
+        {
+            name: 'Jägerhaus Rechlin',
+            address: 'Am Wald 3, Rechlin',
+            city: 'Rechlin',
+            year_built: '1905',
+            architect: 'Otto Peters',
+            building_condition: 'Erfolgreiche und solide Sicherung',
+            heritage_value: 'Das Jägerhaus Rechlin ist ein typisches Beispiel für die kleineren Forstgebäude der Region.',
+            building_history: 'Das Jägerhaus Rechlin wurde 1905 als Unterkunft für den Revierjäger errichtet. Es diente der Überwachung der Jagd und der forstlichen Aufsicht.',
+            description: 'Das Jägerhaus Rechlin ist ein eingeschossiges Gebäude mit Satteldach und seitlichem Anbau. Erbaut 1905, verfügt es über eine Grundfläche von ca. 80 m². Das Gebäude wird heute als Ferienhaus genutzt.',
+            sources_literature: 'Forstamt Rechlin; Gemeinde Rechlin',
+            images: [
+                'https://example.com/jaegerhaus-rechlin-1.jpg',
+                'https://example.com/jaegerhaus-rechlin-2.jpg'
+            ],
+            main_image: 'https://example.com/jaegerhaus-rechlin-main.jpg'
+        }
+    ];
 }
 
 // Parse CSV text to buildings array
@@ -184,7 +287,6 @@ function displayBuildings(buildingsToShow) {
         const card = createBuildingCard(building);
         grid.appendChild(card);
     });
-}
 }
 
 // Create building card element
