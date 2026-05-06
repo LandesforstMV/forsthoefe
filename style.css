@@ -1,0 +1,91 @@
+/* Custom styles for the building catalog */
+
+/* Smooth transitions */
+.building-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.building-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Image overlay effects */
+.image-overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 50%);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Loading animation */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.loading {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Filter animations */
+.filter-transition {
+    transition: all 0.3s ease;
+}
+
+/* Badge styles */
+.condition-badge {
+    position: relative;
+    overflow: hidden;
+}
+
+.condition-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.condition-badge:hover::before {
+    left: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .building-card {
+        margin-bottom: 1rem;
+    }
+
+    .filter-section {
+        padding: 1rem;
+    }
+}
+
+/* Focus styles for accessibility */
+.focus-ring:focus {
+    outline: 2px solid #3e822c;
+    outline-offset: 2px;
+}
