@@ -118,10 +118,10 @@ function getEmbeddedBuildingsData() {
             description: 'Das Waldarbeiterhaus Basedow ist ein zweigeschossiges Mehrfamilienhaus mit Satteldach. Erbaut 1910, verfügt es über 6 Wohnungen mit je ca. 60 m². Das Gebäude ist sanierungsbedürftig und steht unter Denkmalschutz.',
             sources_literature: 'Denkmalpflegeamt Rostock; Forstamt Basedow',
             images: [
-                'https://example.com/waldarbeiter-basedow-1.jpg',
-                'https://example.com/waldarbeiter-basedow-2.jpg'
+                'img/foa-mirow.jpg',
+                'img/foa-mirow.jpg'
             ],
-            main_image: 'https://example.com/waldarbeiter-basedow-main.jpg'
+            main_image: 'img/foa-mirow.jpg'
         },
         {
             name: 'Forstmeisterhaus Waren',
@@ -135,11 +135,11 @@ function getEmbeddedBuildingsData() {
             description: 'Das Forstmeisterhaus Waren ist ein zweigeschossiges Gebäude mit Walmdach und repräsentativer Fassadengestaltung. Erbaut 1898 im Stil der Neorenaissance, verfügt es über eine Nutzfläche von ca. 180 m². Das Gebäude wird heute als Büro genutzt.',
             sources_literature: 'Landesforst MV - Forstamt Waren; Stadtarchiv Waren',
             images: [
-                'https://example.com/forstmeister-waren-1.jpg',
-                'https://example.com/forstmeister-waren-2.jpg',
-                'https://example.com/forstmeister-waren-3.jpg'
+                'img/foa-mirow.jpg',
+                'img/foa-mirow.jpg',
+                'img/foa-mirow.jpg'
             ],
-            main_image: 'https://example.com/forstmeister-waren-main.jpg'
+            main_image: 'img/foa-mirow.jpg'
         },
         {
             name: 'Jägerhaus Rechlin',
@@ -153,10 +153,10 @@ function getEmbeddedBuildingsData() {
             description: 'Das Jägerhaus Rechlin ist ein eingeschossiges Gebäude mit Satteldach und seitlichem Anbau. Erbaut 1905, verfügt es über eine Grundfläche von ca. 80 m². Das Gebäude wird heute als Ferienhaus genutzt.',
             sources_literature: 'Forstamt Rechlin; Gemeinde Rechlin',
             images: [
-                'https://example.com/jaegerhaus-rechlin-1.jpg',
-                'https://example.com/jaegerhaus-rechlin-2.jpg'
+                'img/foa-mirow.jpg',
+                'img/foa-mirow.jpg'
             ],
-            main_image: 'https://example.com/jaegerhaus-rechlin-main.jpg'
+            main_image: 'img/foa-mirow.jpg'
         }
     ];
 }
