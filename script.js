@@ -174,6 +174,11 @@ function parseCSV(csvText) {
             headers.forEach((header, index) => {
                 let value = values[index].trim();
 
+                // Remove surrounding quotes from CSV values
+                if (value.startsWith('"') && value.endsWith('"')) {
+                    value = value.slice(1, -1).replace(/""/g, '"');
+                }
+
                 // Special handling for arrays
                 if (header === 'images') {
                     building[header] = value ? value.split(';').map(url => url.trim()) : [];
@@ -240,18 +245,23 @@ function initializeFilters(buildings) {
 // Filter buildings based on current filters
 // Filter buildings based on current filters
 function filterBuildings() {
-    const searchTerm = currentFilters.search.toLowerCase();
-    const conditionFilter = currentFilters.condition;
-    const cityFilter = currentFilters.city;
+    const searchTerm = currentFilters.search.trim().toLowerCase();
+    const conditionFilter = currentFilters.condition.trim().toLowerCase();
+    const cityFilter = currentFilters.city.trim().toLowerCase();
 
     filteredBuildings = allBuildings.filter(building => {
-        const matchesSearch = !searchTerm ||
-            building.name.toLowerCase().includes(searchTerm) ||
-            building.city.toLowerCase().includes(searchTerm) ||
-            (building.description && building.description.toLowerCase().includes(searchTerm));
+        const name = building.name ? building.name.trim().toLowerCase() : '';
+        const city = building.city ? building.city.trim().toLowerCase() : '';
+        const description = building.description ? building.description.trim().toLowerCase() : '';
+        const condition = building.building_condition ? building.building_condition.trim().toLowerCase() : '';
 
-        const matchesCondition = !conditionFilter || building.building_condition === conditionFilter;
-        const matchesCity = !cityFilter || building.city === cityFilter;
+        const matchesSearch = !searchTerm ||
+            name.includes(searchTerm) ||
+            city.includes(searchTerm) ||
+            description.includes(searchTerm);
+
+        const matchesCondition = !conditionFilter || condition === conditionFilter;
+        const matchesCity = !cityFilter || city === cityFilter;
 
         return matchesSearch && matchesCondition && matchesCity;
     });
@@ -352,6 +362,19 @@ function updateResultCount() {
     countElement.textContent = `${total} Gebäude gefunden`;
 }
 
+// Update load more button visibility
+function updateLoadMoreButton(totalBuildings) {
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    if (!loadMoreBtn) return;
+
+    const shown = currentPage * buildingsPerPage;
+    if (totalBuildings > shown) {
+        loadMoreBtn.classList.remove('hidden');
+    } else {
+        loadMoreBtn.classList.add('hidden');
+    }
+}
+
 // Load more buildings
 function loadMoreBuildings() {
     currentPage++;
@@ -389,14 +412,6 @@ async function loadBuildingDetails(buildingId) {
     }
 }
 
-        displayBuildingDetails(building);
-    } catch (error) {
-        console.error('Error loading building details:', error);
-        showError('Fehler beim Laden der Gebäudedetails');
-    }
-}
-
-// Display building details
 // Display building details
 function displayBuildingDetails(building) {
     document.getElementById('pageTitle').textContent = `${building.name} - Gebäudekatalog`;
@@ -561,19 +576,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Search input
         document.getElementById('searchInput').addEventListener('input', function(e) {
-            currentFilters.search = e.target.value;
+            currentFilters.search = e.target.value.trim();
             filterBuildings();
         });
 
         // Condition filter
         document.getElementById('conditionFilter').addEventListener('change', function(e) {
-            currentFilters.condition = e.target.value;
+            currentFilters.condition = e.target.value.trim();
             filterBuildings();
         });
 
         // City filter
         document.getElementById('cityFilter').addEventListener('change', function(e) {
-            currentFilters.city = e.target.value;
+            currentFilters.city = e.target.value.trim();
             filterBuildings();
         });
 
