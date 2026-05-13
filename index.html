@@ -26,31 +26,39 @@
     </header>
 
     <!-- Filter Section -->
-    <section class="bg-white shadow-sm sticky top-0 z-10">
-        <div class="max-w-7xl mx-auto px-6 py-4">
-            <div class="flex flex-col md:flex-row gap-4">
-                <div class="flex-1">
-                    <input type="text" id="searchInput" placeholder="Gebäude suchen..."
-                           class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#3e822c] focus:border-transparent">
-                </div>
-                <div class="flex gap-3">
-                    <select id="conditionFilter" class="px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#3e822c] focus:border-transparent">
-                        <option value="">Alle Bauzustände</option>
-                        <option value="Denkmalfachlich gelungene (Um)Nutzung">Denkmalfachlich gelungene (Um)Nutzung</option>
-                        <option value="Erfolgreiche und solide Sicherung">Erfolgreiche und solide Sicherung</option>
-                        <option value="Denkmalverträgliche Teilnutzung">Denkmalverträgliche Teilnutzung</option>
-                        <option value="Gefahr für den Bestand">Gefahr für den Bestand</option>
-                    </select>
-                    <select id="cityFilter" class="px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#3e822c] focus:border-transparent">
-                        <option value="">Alle Orte</option>
-                    </select>
-                </div>
+<section class="bg-white shadow-sm sticky top-0 z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+        <div class="flex flex-col gap-3">
+            <!-- Search -->
+            <div class="w-full">
+                <input type="text" id="searchInput" placeholder="Gebäude suchen..."
+                       class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#3e822c] focus:border-transparent text-base">
             </div>
-            <div class="mt-3 text-sm text-gray-600">
-                <span id="resultCount">0 Gebäude gefunden</span>
+            
+            <!-- Dropdowns -->
+            <div class="flex flex-col sm:flex-row gap-3">
+                <select id="conditionFilter" 
+                        class="w-full sm:w-1/2 px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#3e822c] focus:border-transparent text-base bg-white">
+                    <option value="">Alle Bauzustände</option>
+                    <option value="Denkmalfachlich gelungene (Um)Nutzung">Denkmalfachlich gelungene (Um)Nutzung</option>
+                    <option value="Erfolgreiche und solide Sicherung">Erfolgreiche und solide Sicherung</option>
+                    <option value="Denkmalverträgliche Teilnutzung">Denkmalverträgliche Teilnutzung</option>
+                    <option value="Gefahr für den Bestand">Gefahr für den Bestand</option>
+                </select>
+                
+                <select id="cityFilter" 
+                        class="w-full sm:w-1/2 px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#3e822c] focus:border-transparent text-base bg-white">
+                    <option value="">Alle Orte</option>
+                </select>
             </div>
         </div>
-    </section>
+        
+        <!-- Result Count -->
+        <div class="mt-3 text-sm text-gray-600">
+            <span id="resultCount">0 Gebäude gefunden</span>
+        </div>
+    </div>
+</section>
 
     <!-- Buildings Grid -->
     <main class="max-w-7xl mx-auto px-6 py-8">

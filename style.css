@@ -89,3 +89,13 @@
     outline: 2px solid #3e822c;
     outline-offset: 2px;
 }
+/* iOS: Kein Zoom bei Input-Fokus */
+input, select, textarea {
+    font-size: 16px; /* Verhindert iOS-Zoom */
+}
+
+/* Touch-Optimierung */
+select, input {
+    min-height: 44px; /* Mindestgröße für Touch */
+}
+
