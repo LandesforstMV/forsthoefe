@@ -10,12 +10,12 @@
 <body class="bg-stone-50 min-h-screen">
     <!-- Header -->
     <header class="bg-[#154734] text-white">
-        <div class="max-w-7xl mx-auto px-6 py-8">
-            <div class="flex items-center gap-4 mb-4">
-                <div class="w-12 h-12 bg-[#91ae2d] rounded-lg flex items-center justify-center">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M3 22V8h18v14H3zM21 6H3V4h18v2z"/>
-                    </svg>
+        <div class="max-w-7xl mx-auto px-6 py-2">
+            <div class="flex items-center gap-4 mb-0">
+                <div class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 flex items-center justify-center">
+                    <img src="img/logo-weiss.svg" 
+                        alt="Landesforst MV" 
+                        class="h-16 sm:h-20 md:h-24 w-auto block">
                 </div>
                 <div>
                     <h1 class="text-2xl font-bold">Gebäudekatalog</h1>
@@ -61,7 +61,7 @@
 </section>
 
     <!-- Buildings Grid -->
-    <main class="max-w-7xl mx-auto px-6 py-8">
+    <main class="max-w-7xl mx-auto px-6 py-2">
         <div id="buildingsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- Buildings will be loaded here -->
         </div>
@@ -76,15 +76,50 @@
 
     <!-- Footer -->
     <footer class="site-footer bg-[#154734] text-white mt-16">
-        <div class="max-w-7xl mx-auto px-6 py-8">
-            <nav class="footer-links text-center space-y-2 sm:space-y-0 sm:flex sm:justify-center sm:gap-6 text-sm text-gray-300">
-                <a href="https://www.wald-mv.de/" target="_blank" rel="noreferrer noopener" class="hover:text-white">Ein Service der Landesforstanstalt Mecklenburg‑Vorpommern</a>
-                <a href="https://www.wald-mv.de/kontakt/" target="_blank" rel="noreferrer noopener" class="hover:text-white">Kontakt</a>
-                <a href="https://www.wald-mv.de/impressum/" target="_blank" rel="noreferrer noopener" class="hover:text-white">Impressum</a>
-                <a href="https://www.wald-mv.de/Datenschutz/" target="_blank" rel="noreferrer noopener" class="hover:text-white">Datenschutz</a>
-            </nav>
-            <div class="text-center text-sm text-gray-300 mt-4">
-                <p>© 2026 Landesforstanstalt Mecklenburg-Vorpommern</p>
+        <div class="max-w-7xl mx-auto px-6 py-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <!-- Projektbeschreibung -->
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="img/logo-weiss.svg" alt="Landesforst MV" class="h-10 w-auto block">
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Ein Projekt der <strong class="text-white">Waldstiftung MV</strong> und der <strong class="text-white">Landesforstanstalt Mecklenburg‑Vorpommern</strong>.
+                    </p>
+                    <p class="text-gray-400 text-xs mt-3">
+                        Dokumentation und Bewahrung historischer Forstgebäude in Mecklenburg‑Vorpommern.
+                    </p>
+                </div>
+
+                <!-- Kategorien -->
+                <div>
+                    <h3 class="text-[#91ae2d] font-semibold text-sm uppercase tracking-wider mb-4">Kategorien</h3>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li><a href="#" onclick="document.getElementById('conditionFilter').value='Denkmalfachlich gelungene (Um)Nutzung'; filterBuildings(); return false;" class="hover:text-white transition-colors">Denkmalfachlich gelungene (Um)Nutzung</a></li>
+                        <li><a href="#" onclick="document.getElementById('conditionFilter').value='Erfolgreiche und solide Sicherung'; filterBuildings(); return false;" class="hover:text-white transition-colors">Erfolgreiche und solide Sicherung</a></li>
+                        <li><a href="#" onclick="document.getElementById('conditionFilter').value='Denkmalverträgliche Teilnutzung'; filterBuildings(); return false;" class="hover:text-white transition-colors">Denkmalverträgliche Teilnutzung</a></li>
+                        <li><a href="#" onclick="document.getElementById('conditionFilter').value='Gefahr für den Bestand'; filterBuildings(); return false;" class="hover:text-white transition-colors">Gefahr für den Bestand</a></li>
+                    </ul>
+                </div>
+
+                <!-- Links & Kontakt -->
+                <div>
+                    <h3 class="text-[#91ae2d] font-semibold text-sm uppercase tracking-wider mb-4">Links & Kontakt</h3>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li><a href="https://www.wald-mv.de/" target="_blank" rel="noreferrer noopener" class="hover:text-white transition-colors">Landesforstanstalt MV</a></li>
+                        <li><a href="https://www.wald-mv.de/kontakt/" target="_blank" rel="noreferrer noopener" class="hover:text-white transition-colors">Kontakt</a></li>
+                        <li><a href="https://www.wald-mv.de/impressum/" target="_blank" rel="noreferrer noopener" class="hover:text-white transition-colors">Impressum</a></li>
+                        <li><a href="https://www.wald-mv.de/Datenschutz/" target="_blank" rel="noreferrer noopener" class="hover:text-white transition-colors">Datenschutz</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Trennlinie -->
+            <div class="border-t border-[#3e822c]/40 pt-6">
+                <div class="flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-gray-400">
+                    <p>© 2026 Landesforstanstalt Mecklenburg-Vorpommern</p>
+                    <p>Alle Rechte vorbehalten.</p>
+                </div>
             </div>
         </div>
     </footer>

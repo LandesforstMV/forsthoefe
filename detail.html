@@ -8,25 +8,54 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-stone-50 min-h-screen">
-    <!-- Header -->
-    <header class="bg-[#154734] text-white">
-        <div class="max-w-7xl mx-auto px-6 py-8">
-            <div class="flex items-center gap-4 mb-4">
-                <div class="w-12 h-12 bg-[#91ae2d] rounded-lg flex items-center justify-center">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M3 22V8h18v14H3zM21 6H3V4h18v2z"/>
-                    </svg>
-                </div>
-                <div>
-                    <h1 class="text-2xl font-bold">Gebäudekatalog</h1>
-                    <p class="text-[#91ae2d]">Historische Forstgebäude Mecklenburg-Vorpommern</p>
-                </div>
+<header class="bg-[#154734] text-white">
+    <div class="max-w-7xl mx-auto px-6 py-2">
+        <div class="flex items-center gap-4 mb-0">
+            <div class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550" class="w-auto h-16 sm:h-20 md:h-24 block">
+                    <g fill="none" stroke="#ffffff" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M180,320 Q200,300 240,300 L760,300 Q800,300 820,320 L780,260 Q750,230 700,230 L300,230 Q250,230 220,260 L180,320 Z" />
+                        <path d="M160,330 Q180,310 220,310 L780,310 Q820,310 840,330" stroke-width="10" />
+                        <rect x="680" y="160" width="45" height="80" rx="6" />
+                        <rect x="670" y="145" width="65" height="18" rx="5" />
+                        <rect x="240" y="310" width="520" height="200" rx="8" />
+                        <line x1="240" y1="380" x2="760" y2="380" stroke-width="10" />
+                        <line x1="240" y1="450" x2="760" y2="450" stroke-width="10" />
+                        <line x1="340" y1="310" x2="340" y2="510" stroke-width="10" />
+                        <line x1="450" y1="310" x2="450" y2="510" stroke-width="10" />
+                        <line x1="560" y1="310" x2="560" y2="510" stroke-width="10" />
+                        <line x1="670" y1="310" x2="670" y2="510" stroke-width="10" />
+                        <line x1="240" y1="310" x2="340" y2="380" stroke-width="6" opacity="0.6" />
+                        <line x1="340" y1="310" x2="240" y2="380" stroke-width="6" opacity="0.6" />
+                        <line x1="450" y1="380" x2="560" y2="450" stroke-width="6" opacity="0.6" />
+                        <line x1="560" y1="380" x2="450" y2="450" stroke-width="6" opacity="0.6" />
+                        <path d="M420,510 L420,420 Q420,390 450,390 L510,390 Q540,390 540,420 L540,510" fill="#ffffff" />
+                        <circle cx="525" cy="450" r="4" fill="#154734" />
+                        <rect x="270" y="340" width="50" height="60" rx="4" fill="#ffffff" opacity="0.9" />
+                        <line x1="295" y1="340" x2="295" y2="400" stroke-width="3" />
+                        <line x1="270" y1="370" x2="320" y2="370" stroke-width="3" />
+                        <rect x="610" y="340" width="50" height="60" rx="4" fill="#ffffff" opacity="0.9" />
+                        <line x1="635" y1="340" x2="635" y2="400" stroke-width="3" />
+                        <line x1="610" y1="370" x2="660" y2="370" stroke-width="3" />
+                        <rect x="460" y="250" width="40" height="35" rx="3" fill="#ffffff" opacity="0.8" />
+                        <line x1="480" y1="250" x2="480" y2="285" stroke-width="2" />
+                        <line x1="120" y1="280" x2="120" y2="510" stroke-width="20" stroke-linecap="round" />
+                        <ellipse cx="120" cy="260" rx="70" ry="50" fill="none" />
+                        <ellipse cx="120" cy="200" rx="55" ry="40" fill="none" />
+                        <ellipse cx="120" cy="150" rx="40" ry="30" fill="none" />
+                        <path d="M60,280 Q120,220 180,280" stroke-width="12" />
+                        <path d="M70,220 Q120,160 170,220" stroke-width="10" />
+                        <path d="M85,170 Q120,120 155,170" stroke-width="8" />
+                    </g>
+                </svg>
             </div>
-            <button onclick="window.location.href='index.html'" class="text-white hover:text-[#91ae2d] transition-colors">
-                ← Zurück zur Übersicht
-            </button>
+            <div>
+                <h1 class="text-2xl font-bold">Gebäudekatalog</h1>
+                <p class="text-[#91ae2d]">Historische Forstgebäude Mecklenburg-Vorpommern</p>
+            </div>
         </div>
-    </header>
+    </div>
+</header>
 
     <!-- Building Details -->
     <main class="max-w-6xl mx-auto px-6 py-8">
@@ -113,15 +142,97 @@
 
     <!-- Footer -->
 <footer class="bg-[#154734] text-white mt-16">
-    <div class="max-w-7xl mx-auto px-6 py-8">
-        <nav class="footer-links text-center space-y-2 sm:space-y-0 sm:flex sm:justify-center sm:gap-6 text-sm text-gray-300">
-            <a href="https://www.wald-mv.de/" target="_blank" rel="noreferrer noopener" class="hover:text-white">Ein Service der Landesforstanstalt Mecklenburg‑Vorpommern</a>
-            <a href="https://www.wald-mv.de/kontakt/" target="_blank" rel="noreferrer noopener" class="hover:text-white">Kontakt</a>
-            <a href="https://www.wald-mv.de/impressum/" target="_blank" rel="noreferrer noopener" class="hover:text-white">Impressum</a>
-            <a href="https://www.wald-mv.de/Datenschutz/" target="_blank" rel="noreferrer noopener" class="hover:text-white">Datenschutz</a>
-        </nav>
-        <div class="text-center text-sm text-gray-300 mt-4">
-            <p>© 2026 Landesforstanstalt Mecklenburg-Vorpommern</p>
+    <div class="max-w-7xl mx-auto px-6 py-10">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <!-- Projektbeschreibung -->
+            <div>
+                <div class="flex items-center gap-3 mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550" class="w-auto h-10 block">
+                        <g fill="none" stroke="#ffffff" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M180,320 Q200,300 240,300 L760,300 Q800,300 820,320 L780,260 Q750,230 700,230 L300,230 Q250,230 220,260 L180,320 Z" />
+                            <path d="M160,330 Q180,310 220,310 L780,310 Q820,310 840,330" stroke-width="10" />
+                            <rect x="680" y="160" width="45" height="80" rx="6" />
+                            <rect x="670" y="145" width="65" height="18" rx="5" />
+                            <rect x="240" y="310" width="520" height="200" rx="8" />
+                            <line x1="240" y1="380" x2="760" y2="380" stroke-width="10" />
+                            <line x1="240" y1="450" x2="760" y2="450" stroke-width="10" />
+                            <line x1="340" y1="310" x2="340" y2="510" stroke-width="10" />
+                            <line x1="450" y1="310" x2="450" y2="510" stroke-width="10" />
+                            <line x1="560" y1="310" x2="560" y2="510" stroke-width="10" />
+                            <line x1="670" y1="310" x2="670" y2="510" stroke-width="10" />
+                            <line x1="240" y1="310" x2="340" y2="380" stroke-width="6" opacity="0.6" />
+                            <line x1="340" y1="310" x2="240" y2="380" stroke-width="6" opacity="0.6" />
+                            <line x1="450" y1="380" x2="560" y2="450" stroke-width="6" opacity="0.6" />
+                            <line x1="560" y1="380" x2="450" y2="450" stroke-width="6" opacity="0.6" />
+                            <path d="M420,510 L420,420 Q420,390 450,390 L510,390 Q540,390 540,420 L540,510" fill="#ffffff" />
+                            <circle cx="525" cy="450" r="4" fill="#154734" />
+                            <rect x="270" y="340" width="50" height="60" rx="4" fill="#ffffff" opacity="0.9" />
+                            <line x1="295" y1="340" x2="295" y2="400" stroke-width="3" />
+                            <line x1="270" y1="370" x2="320" y2="370" stroke-width="3" />
+                            <rect x="610" y="340" width="50" height="60" rx="4" fill="#ffffff" opacity="0.9" />
+                            <line x1="635" y1="340" x2="635" y2="400" stroke-width="3" />
+                            <line x1="610" y1="370" x2="660" y2="370" stroke-width="3" />
+                            <rect x="460" y="250" width="40" height="35" rx="3" fill="#ffffff" opacity="0.8" />
+                            <line x1="480" y1="250" x2="480" y2="285" stroke-width="2" />
+                            <line x1="120" y1="280" x2="120" y2="510" stroke-width="20" stroke-linecap="round" />
+                            <ellipse cx="120" cy="260" rx="70" ry="50" fill="none" />
+                            <ellipse cx="120" cy="200" rx="55" ry="40" fill="none" />
+                            <ellipse cx="120" cy="150" rx="40" ry="30" fill="none" />
+                            <path d="M60,280 Q120,220 180,280" stroke-width="12" />
+                            <path d="M70,220 Q120,160 170,220" stroke-width="10" />
+                            <path d="M85,170 Q120,120 155,170" stroke-width="8" />
+                        </g>
+                    </svg>
+                </div>
+                <p class="text-gray-300 text-sm leading-relaxed">
+                    Ein Projekt der <strong class="text-white">Waldstiftung MV</strong> und der <strong class="text-white">Landesforstanstalt Mecklenburg‑Vorpommern</strong>.
+                </p>
+                <p class="text-gray-400 text-xs mt-3">
+                    Dokumentation und Bewahrung historischer Forstgebäude in Mecklenburg‑Vorpommern.
+                </p>
+            </div>
+
+            <!-- Kategorien -->
+            <div>
+                <h3 class="text-[#91ae2d] font-semibold text-sm uppercase tracking-wider mb-4">Kategorien</h3>
+                <ul class="space-y-2 text-sm text-gray-300">
+                    <li><a href="index.html" class="hover:text-white transition-colors">Denkmalfachlich gelungene (Um)Nutzung</a></li>
+                    <li><a href="index.html" class="hover:text-white transition-colors">Erfolgreiche und solide Sicherung</a></li>
+                    <li><a href="index.html" class="hover:text-white transition-colors">Denkmalverträgliche Teilnutzung</a></li>
+                    <li><a href="index.html" class="hover:text-white transition-colors">Gefahr für den Bestand</a></li>
+                </ul>
+            </div>
+
+            <!-- Links & Kontakt -->
+            <div>
+                <h3 class="text-[#91ae2d] font-semibold text-sm uppercase tracking-wider mb-4">Links & Kontakt</h3>
+                <ul class="space-y-2 text-sm text-gray-300">
+                    <li><a href="https://www.wald-mv.de/" target="_blank" rel="noreferrer noopener" class="hover:text-white transition-colors">Landesforstanstalt MV</a></li>
+                    <li><a href="https://www.wald-mv.de/kontakt/" target="_blank" rel="noreferrer noopener" class="hover:text-white transition-colors">Kontakt</a></li>
+                    <li><a href="https://www.wald-mv.de/impressum/" target="_blank" rel="noreferrer noopener" class="hover:text-white transition-colors">Impressum</a></li>
+                    <li><a href="https://www.wald-mv.de/Datenschutz/" target="_blank" rel="noreferrer noopener" class="hover:text-white transition-colors">Datenschutz</a></li>
+                    <li class="pt-2 flex items-center gap-3">
+                        <a href="https://www.instagram.com/landesforstmv/" target="_blank" rel="noopener" aria-label="Instagram" class="hover:opacity-80 transition-opacity">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-5 h-5 fill-white">
+                                <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM402.4 374.6c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/company/landesforst-mv-%E2%80%93-anstalt-des-%C3%B6ffentlichen-rechts" target="_blank" rel="noopener" aria-label="LinkedIn" class="hover:opacity-80 transition-opacity">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-5 h-5 fill-white">
+                                <path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Trennlinie -->
+        <div class="border-t border-[#3e822c]/40 pt-6">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-gray-400">
+                <p>© 2026 Landesforstanstalt Mecklenburg-Vorpommern</p>
+                <p>Alle Rechte vorbehalten.</p>
+            </div>
         </div>
     </div>
 </footer>
